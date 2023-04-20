@@ -1,0 +1,65 @@
+package Examen;
+
+/**
+ *
+ * @author Ximena
+ */
+import java.util.Scanner;
+
+public class Principal {
+/**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Scanner sc = new Scanner(System.in);
+        int[] listaNumeros = new int[12];
+        System.out.println("Ingresar 12 números enteros: ");
+        for(int i=0; i<12; i++){
+            listaNumeros[i] = sc.nextInt();
+        }
+        int[] impares = seleccionarImpares(listaNumeros);
+        selectionSort(impares);
+        System.out.println("Números impares ordenados Ascendentemente: ");
+        showArray(impares);
+    }
+    
+    public static int[] seleccionarImpares(int[] numeros){
+        int[] impares = new int[numeros.length];
+        int j = 0;
+        for(int i=0; i<numeros.length; i++){
+            if(numeros[i] % 2 != 0){
+                impares[j] = numeros[i];
+                j++;
+            }
+        }
+        int[] res = new int[j];
+        System.arraycopy(impares, 0, res, 0, j);
+        return res;
+    }
+    
+    public static void selectionSort(int[] a){
+        int min;
+        for (int i = 0; i < a.length -1; i++) {
+            min = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[min] < a[j]) {
+                    min = j;
+                }
+            }
+            int aux = a[min];
+            a[min] = a[i];
+            a[i] = aux;
+        }
+    }
+    
+    public static void showArray(int[] a){
+        for(int i=0; i<a.length; i++){
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
+
+}
