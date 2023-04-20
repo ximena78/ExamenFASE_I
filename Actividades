@@ -1,0 +1,10 @@
+T(n) = 2T(n-1) + c
+
+n - k = 0
+k = n
+
+T(n) = 2^nT(0) + (2^n-1)c //(sustitución)
+= 2^n + (2^n-1)c
+
+
+O(2^n) //resultado
